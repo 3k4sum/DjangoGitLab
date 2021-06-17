@@ -1,11 +1,13 @@
 version: "3.3"
 services:
   web:
-    build: .
+    build:
+      context: ../
+      dockerfile: deployment/Dockerfile
     ports:
       - "5000:5000"
     volumes:
-      - .:/code
+      - ../:/code
     environment:
       FLASK_ENV: development
   redis:
